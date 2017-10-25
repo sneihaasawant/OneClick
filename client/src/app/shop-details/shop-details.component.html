@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Shop-Details</title>
+</head>
+<body>
+  <h2>Choose Item</h2>
+  <div class='container'>
+  <div *ngFor='let item of clothes'>
+    <img (click)='itemdetails(item.itemId)' id='img' [src]=item.largeImage>
+    <p>{{item.name}}</p>    
+    <p>{{item.salePrice}}</p>
+    <p *ngIf='item.stock === "Available"'>In Stock</p>
+    <p *ngIf='item.stock !== "Available"'>Not In Stock</p>    
+  </div></div>
+</body>
+</html>
+
+<!-- 
+<div *ngFor='let item of clothes'>
+    <p>---------------------------------------------</p>
+    <p>{{item.name}}</p>
+    <img [src]=item.largeImage>
+    <p>{{item.salePrice}}</p>
+    <p>Sold By : {{item.sellerInfo}}</p>
+    <p *ngIf='item.stock === "Available"'>In Stock</p>
+    <p *ngIf='item.stock !== "Available"'>Not In Stock</p>
+    <p>Quantity : <input type="number" min="1" max="20" value="1"></p>
+    <button>Add To Cart</button>
+  </div> -->

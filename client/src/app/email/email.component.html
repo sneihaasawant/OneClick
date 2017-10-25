@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+      <form (submit)="loginviaForm()" #userForm='ngForm'>
+          <p>Username :  <input type='text' name ='name'
+            required 
+            minlength="1"
+            [(ngModel)]='user.name'
+            [ngClass]="{ boxborder : name.errors }"
+            #name="ngModel"></p>
+           <span *ngIf='name.errors?.required'>Username is required</span>
+            <span *ngIf='name.errors?.minlength'>Minimum length is {{name.errors.minlength.requiredLength}}</span>
+  
+            <p>Password : <input type='text' name ='password'
+              required 
+              minlength="1"
+              [(ngModel)]='user.password'
+              [ngClass]="{ boxborder : password.errors }"
+              #password="ngModel"></p>
+              <span *ngIf='password.errors?.required'>Password is required</span>
+              <span *ngIf='password.errors?.minlength'>Minimum length is {{password.errors.minlength.requiredLength}}</span>
+  
+              <p><input type='submit' value='SignIn' [disabled]='!userForm.valid'></p>
+  
+        </form>
+  </div>
+</body>
+</html>

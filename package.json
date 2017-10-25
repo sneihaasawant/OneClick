@@ -9,16 +9,14 @@
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
     "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
-    "test": "tsc && karma start"
+    "test": "tsc && karma start",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/abacritt/angular4-social-login"
+    "url": "git+https://github.com/abacritt/angular4-social-login.git"
   },
-  "author": {
-    "name": "Jaibatrik Dutta",
-    "email": "jaibatrik@gmail.com"
-  },
+  "author": "Jaibatrik Dutta <jaibatrik@gmail.com>",
   "keywords": [
     "angular",
     "angular4",
@@ -70,5 +68,18 @@
   },
   "engines": {
     "node": ">=6.0.0"
+  },
+  "description": "",
+  "homepage": "https://github.com/abacritt/angular4-social-login#readme",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^4.12.4",
+    "path": "^0.12.7"
   }
 }
