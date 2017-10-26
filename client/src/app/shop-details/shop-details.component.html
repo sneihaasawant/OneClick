@@ -7,17 +7,72 @@
   <title>Shop-Details</title>
 </head>
 <body>
-  <h2>Choose Item</h2>
-  <div class='container'>
-  <div *ngFor='let item of clothes'>
+<div class='container'>
+    <div class='row'>
+        <ul id="tabs-swipe-demo" class="tabs">
+            <li class="tab col s3"><a [routerLink]="['/home','dashboard']">Home</a></li>
+            <li class="tab col s3"><a [routerLink]="['/home','watchlist']">Watchlist</a></li>
+            <li class="tab col s3"><a [routerLink]="['/home','cart']">Cart</a></li>
+          </ul>
+    </div>
+
+
+
+    <div class="row">
+        <div *ngFor='let item of clothes'>
+        <div class="col s12 m7">        
+          <div class="card" style='display: inline-block'>
+            <div class="card-image">
+                <img (click)='itemdetails(item.itemId)' id='img' [src]=item.largeImage>
+              <span class="card-title" style='color : black; font-weight: bold; '>${{item.salePrice}}</span>
+            </div>
+            <div class="card-content">
+              <p>{{item.name}}</p>
+              <p *ngIf='item.stock === "Available"' style='color : green'>In Stock</p>
+              <p *ngIf='item.stock !== "Available"' style='color : red'>Not In Stock</p>  
+            </div>
+            </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+  <!-- <div *ngFor='let item of clothes'>
     <img (click)='itemdetails(item.itemId)' id='img' [src]=item.largeImage>
     <p>{{item.name}}</p>    
     <p>{{item.salePrice}}</p>
     <p *ngIf='item.stock === "Available"'>In Stock</p>
     <p *ngIf='item.stock !== "Available"'>Not In Stock</p>    
-  </div></div>
+  </div> -->
+</div>
+
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- 
 <div *ngFor='let item of clothes'>

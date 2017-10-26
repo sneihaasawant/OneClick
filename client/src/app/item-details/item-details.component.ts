@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { Item } from '../item';
+import { Cart } from '../cart';
 
 @Component({
   selector: 'app-item-details',
@@ -9,7 +10,7 @@ import { Item } from '../item';
   styleUrls: ['./item-details.component.css']
 })
 export class ItemDetailsComponent implements OnInit {
-  item: Item; productid; count;
+  item: Item; productid; count;   cart: Cart; item1: Item;
   constructor(private _userService: UserService , private router: Router) { }
 
   ngOnInit() {
@@ -19,6 +20,7 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   getItem() {
+    this.cart = new Cart();
     this._userService.getItemDetails()
     .then( (data) => {
       this.item  = data;
@@ -34,8 +36,18 @@ export class ItemDetailsComponent implements OnInit {
     .catch( err => console.log('get watchlist error' , err) );
   }
 
-  addToCart() {
+  addToCart(item) {
     console.log('Inside add to cart');
+    this.cart.itemId = this.productid;
+    this.cart.name = this.item.name;
+    this.cart.size = this.item.size;
+    this.cart.color = this.item.color;
+    this.cart.salePrice = this.item.salePrice;
+    this.cart.quantity = this.item.quantity;
+    this._userService.addtoCart(this.cart)
+    .then( () => console.log('cart added sucessfully'))
+    .catch( err => console.log('cart add err', err));
+    this.router.navigate(['/dashboard', 'shop-details'] );
   }
 
   addToWatchlist() {

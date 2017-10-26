@@ -5,12 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+         <!--Import materialize.css-->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  
+          <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
+  
+          <!--Let browser know website is optimized for mobile-->
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+ 
 </head>
 <body>
-  <div>
-   Choose Brand 
-   <img  (click)='shopCloths("Tommy Hilfiger")' src="assets/images/th.png">
+<!--Other element insitialisations-->
+<script type="text/javascript" language="javascript">
+    $( document ).ready(function(){
+
+        $('.carousel').carousel(); //carousel init
+
+        $('.carousel.carousel-slider').carousel({full_width: true});
+    });
+
+</script>
+
+
+<div class='container'>
+  <div class='row'>
+      <div class="col s6" class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" (click)='shopCloths("Tommy Hilfiger")' src="assets/images/th.png">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Tommy Hilfiger<i class="material-icons right">more_vert</i></span>
+            <p><a (click)='shopCloths("Tommy Hilfiger")'>Shop Here</a></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Tommy Hilfiger<i class="material-icons right">close</i></span>
+            <p>We've approached design in a new way, incorporating quick-close
+                innovation exactly where it's needed (but only you'll know it's there)</p>
+          </div>
+      </div>
+
+      <div class="col s6" class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" (click)='shopCloths("Calvin Klein")' src="assets/images/ck.png">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Calvin Klein<i class="material-icons right">more_vert</i></span>
+            <p><a (click)='shopCloths("Tommy Hilfiger")'>Shop Here</a></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Calvin Klein<i class="material-icons right">close</i></span>
+            <p>DRESS UP
+                Simple and seasonless styles for every occasion</p>
+          </div>
+      </div>
   </div>
-  {{brand}}
+  <div class='row'>
+
+      <div class="col s6" class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" (click)='shopCloths("INC International Concepts")' src="assets/images/inc.png">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">INC International Concepts<i class="material-icons right">more_vert</i></span>
+            <p><a (click)='shopCloths("Tommy Hilfiger")'>Shop Here</a></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">INC International Concepts<i class="material-icons right">close</i></span>
+            <p>Shop Online for the Latest Collection of Women's Apparel by INC International Concepts</p>
+          </div>
+        </div>
+
+          <div class="col s6" class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" (click)='shopCloths("Lauren Ralph Lauren")' src="assets/images/rl.png">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">INC International Concepts<i class="material-icons right">more_vert</i></span>
+                <p><a (click)='shopCloths("Tommy Hilfiger")'>Shop Here</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Ralph Lauren<i class="material-icons right">close</i></span>
+                <p>Ralph Lauren offers luxury men's and women's clothing, children's and baby clothes</p>
+            </div>
+ 
+        </div>
+  </div>
+  <h4>Browsing Histrory</h4>
+  <div *ngFor='let browseditem of browseItemarr'>
+      <img (click)='itemdetails(browseditem.itemId)' id='img' [src]=browseditem.largeImage>
+    </div>
+
+  <div class="carousel carousel-slider">
+      <div *ngFor='let browseditem of browseItemarr ; let idx=index'>
+        <a class="carousel-item" [href]=idx><img class="carousel-item" (click)='itemdetails(browseditem.itemId)' [src]=browseditem.largeImage></a>
+      </div>
+   </div>
+
+
+
+</div>
 </body>
-</html>
+</html> 
+
+<!-- 
+<div>
+    Choose Brand 
+    <img  (click)='shopCloths("Tommy Hilfiger")' src="assets/images/th.png">
+   </div>
+  <!-- {{  bhistory  | json}} -->
+  <!-- <div *ngFor='let browseditem of browseItemarr'>
+     <img (click)='itemdetails(browseditem.itemId)' id='img' [src]=browseditem.largeImage>
+     <p>{{ browseditem.name }}</p>    
+     <p>{{ browseditem.salePrice }}</p>
+     <p *ngIf='browseditem.stock === "Available"'>In Stock</p>
+     <p *ngIf='browseditem.stock !== "Available"'>Not In Stock</p>    
+  </div>
+  {{ browseItemarr | json }} --> 

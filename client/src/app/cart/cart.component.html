@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class='row'>
+    <div *ngFor='let cart of order'>
+    <div class="col s12 m7">
+        <h2 class="header">{{ cart.salePrice }}</h2>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="https://lorempixel.com/100/190/nature/6">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+                <p>{{ cart.name }}</p>
+                <p>Size : {{ cart.size }}</p>
+                <p>Color : {{ cart.color }}</p>
+                <p>Price : ${{ cart.salePrice }}</p>
+            </div>
+            <div class="card-action">
+                Quantity : <input type="number" min="1" max="50" [value]=cart.quantity [(ngModel)]='cart.quantity'>
+                Total : <Span>{{ cart.salePrice*cart.quantity }}</Span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div><p>Estimated Total : </p>
+      <button>Place Your Order</button>
+    </div>
+</body>
+</html>
+
+
+<!-- <div *ngFor='let cart of order'>
+    <p>------------------------</p>
+    <p>{{ cart.name }}</p>
+    <p>{{ cart.size }}</p>
+    <p>{{ cart.color }}</p>
+    <p>{{ cart.salePrice }}</p>
+    Quantity : <input type="number" min="1" max="50" [value]=cart.quantity [(ngModel)]='cart.quantity'>
+    Total : <Span>{{ cart.salePrice*cart.quantity }}</Span>
+
+  </div>
+  <button>Confirm Your Order</button> -->

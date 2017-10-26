@@ -8,28 +8,69 @@
 </head>
 <body>
   <div>
-      <form (submit)="loginviaForm()" #userForm='ngForm'>
-          <p>Username :  <input type='text' name ='name'
+
+      <!-- <form (submit)="loginviaForm()" #userForm='ngForm'>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+            name ='name'
             required 
             minlength="1"
             [(ngModel)]='user.name'
             [ngClass]="{ boxborder : name.errors }"
-            #name="ngModel"></p>
-           <span *ngIf='name.errors?.required'>Username is required</span>
-            <span *ngIf='name.errors?.minlength'>Minimum length is {{name.errors.minlength.requiredLength}}</span>
-  
-            <p>Password : <input type='text' name ='password'
+            #name="ngModel"
+            >
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password"
+            name ='password'
+            required 
+            minlength="1"
+            [(ngModel)]='user.password'
+            [ngClass]="{ boxborder : password.errors }"
+            #password="ngModel"
+            >
+          </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]='!userForm.valid'> Sign In / Register </button>
+        </form> -->
+
+     
+          <div class="col s12">
+      <form (submit)="loginviaForm()" #userForm='ngForm'>
+          <div class="input-field col s6">
+              <input id="UserName" type="text" class="validate"  name ='name' 
+              required 
+              minlength="5"
+              [(ngModel)]='user.name'
+              [ngClass]="{ boxborder : name.errors }"
+              #name="ngModel">
+              <label for="UserName">UserName</label>
+              <span *ngIf='name.errors?.required' style='color : red;'>Username is required</span>
+              <span *ngIf='name.errors?.minlength' style='color : red;'>Minimum length is {{name.errors.minlength.requiredLength}}</span>
+          </div>
+
+          <div class="input-field col s6">
+              <input id="password" type="text" class="validate"  name ='password' 
               required 
               minlength="1"
               [(ngModel)]='user.password'
               [ngClass]="{ boxborder : password.errors }"
-              #password="ngModel"></p>
-              <span *ngIf='password.errors?.required'>Password is required</span>
-              <span *ngIf='password.errors?.minlength'>Minimum length is {{password.errors.minlength.requiredLength}}</span>
-  
-              <p><input type='submit' value='SignIn' [disabled]='!userForm.valid'></p>
-  
+              #password="ngModel">
+              <label for="UserName">Password</label>
+              <span *ngIf='password.errors?.required' style='color : red;'>Password is required</span>
+              <span *ngIf='password.errors?.minlength' style='color : red;'>Minimum length is {{name.errors.minlength.requiredLength}}</span>
+          </div>
+          <br>
+              <p><input type='submit' class="btn btn-primary waves-effect waves-light col s2" value='Sign In / Register' [disabled]='!userForm.valid'></p>
+              <!-- <button type="submit" class="btn btn-primary" [disabled]='!userForm.valid'>  </button> -->
         </form>
+    
+      </div>
   </div>
 </body>
 </html>

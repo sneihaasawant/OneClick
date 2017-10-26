@@ -1,14 +1,15 @@
 export class Item {
-    name: String = '';
-    salePrice: String = '';
-    brandName: String = '';
-    thumbnailImage: String = '';
-    mediumImage: String = '';
-    largeImage: String = '';
-    size: String = '';
-    color: String = '';
-    sellerInfo: String = '';
-    stock: String = '';
+    name = '';
+    salePrice = '';
+    brandName= '';
+    thumbnailImage = '';
+    mediumImage = '';
+    largeImage = '';
+    size = '';
+    color = '';
+    sellerInfo = '';
+    stock = '';
+    quantity = 0;
     // "Available",
     freeShippingOver50Dollars: String = '';
 }

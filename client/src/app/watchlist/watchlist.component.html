@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="row">
+      <div *ngFor='let watchitem of watchlistArr'>
+      <div class="col s12 m7">        
+        <div class="card" style='display: inline-block'>
+          <div class="card-image">
+              <img (click)='itemdetails(watchitem.itemId)' id='img' [src]=watchitem.largeImage>
+            <span class="card-title" style='color : black; font-weight: bold; '>${{watchitem.salePrice}}</span>
+          </div>
+          <div class="card-content">
+            <p>{{watchitem.name}}</p>
+            <p *ngIf='watchitem.stock === "Available"' style='color : green'>In Stock</p>
+            <p *ngIf='watchitem.stock !== "Available"' style='color : red'>Not In Stock</p>  
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+ 
+   
+</body>
+</html>
+
+<!-- <div *ngFor='let watchitem of watchlistArr'>
+    <img (click)='itemdetails(watchitem.itemId)' id='img' [src]=watchitem.largeImage>
+    <p>{{ watchitem.name }}</p>    
+    <p>{{ watchitem.salePrice }}</p>
+    <p *ngIf='watchitem.stock === "Available"'>In Stock</p>
+    <p *ngIf='watchitem.stock !== "Available"'>Not In Stock</p>    
+ </div> -->

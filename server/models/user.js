@@ -7,7 +7,6 @@ const UserSchema = mongoose.Schema({
     browselist: [],
 }, { timestamps: true })
 
-
 mongoose.model("User", UserSchema)
 
 
@@ -17,5 +16,15 @@ var ProductSchema = new mongoose.Schema({
     watchedBy: [],
 }, {timestamps: true });
 
-
 mongoose.model("Product", ProductSchema)
+
+
+
+
+var OrderSchema = new mongoose.Schema({
+    userid: String,
+    orderCart: [],
+}, {timestamps: true });
+
+
+mongoose.model("Order", OrderSchema)

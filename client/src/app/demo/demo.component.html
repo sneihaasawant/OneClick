@@ -1,31 +1,48 @@
-<div class="jumbotron bg-transparent text-center">
-  <div *ngIf="!user" class="card text-center">
-    <h6 class="card-header">
-      Register With Us!   
-    </h6>
-    
-      <div class="card" style="width: 20rem;">
-      <img id = 'lock' class="card-img-top" src="assets/images/lock.png" id="lock">
-      <button class="btn btn-block btn-social btn-lg btn-google" (click)="signInWithGoogle()"><span class="fa fa-google">   </span> Sign In With Goggle</button>
-      <br>
-      <button class="btn btn-block btn-social btn-lg  btn-facebook" (click)="signInWithFB()"><span class="fa fa-facebook">  </span> Sign In With Facebook</button>
-      <br>
-      <button class="btn btn-block btn-secondary btn-lg" (click)="email()">Email</button>
-    </div>
-  </div>
-  <div *ngIf="user" class="card text-center">
-    <h6 class="card-header">
-      Welcome to One Click. Let's Shop !!!
-    </h6>
-    <div class="card-block"></div>
-    <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
-    <div class="card-block">
-      <h4 class="card-title">{{ user.name }}</h4>
-      <p class="card-text">{{ user.email }}</p>
-    </div>
-    <div class="card-block">
-      <button class="btn btn-danger" (click)="signOut()">Sign out</button>
-      <button class="btn btn-danger" (click)="shop()">Let's Shop</button>
-    </div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  
+</head>
+<body>
+    <div class="jumbotron bg-transparent text-center">
+      <div *ngIf="!user" class="card text-center">
+        <h6 class="card-header">
+          Register With Us!
+        </h6>
+        <div class="card" style="width: 20rem;">
+          <img class='lock' class="card-img-top" src="assets/images/lock.png" id="lock">
+
+          <a class="waves-effect waves-light btn social btn-google google" style='background-color :#dd4b39;' (click)="signInWithGoogle()">
+            <i class="fa fa-google"></i> Sign in with google</a>
+          <br>
+          <a class="waves-effect waves-light btn social facebook text-center" (click)="signInWithFB()">
+            <i class="fa fa-facebook"></i> Sign in with facebook</a>
+      
+          <br>
+          <button class="btn waves-effect waves-light btn-outline-primary btn-lg" (click)="email()">Sign In With Email</button>
+        </div>
+      </div>
+
+        <div *ngIf="user" class="card text-center">
+          <h6 class="card-header">
+            Welcome to One Click. Let's Shop !!!
+          </h6>
+          <div class="card-block"></div>
+          <img class='lock' class="card-img-top" src="{{ user.photoUrl }}">
+          <div class="card-block">
+            <h4 class="card-title">{{ user.name }}</h4>
+            <p class="card-text">{{ user.email }}</p>
+          </div>
+          <div class="card-block">
+            <button class="btn btn-outline-primary" (click)="signOut()">Sign out</button>
+            <button class="btn btn-outline-primary" (click)="shop()">Let's Shop</button>
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>

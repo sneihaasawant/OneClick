@@ -7,24 +7,67 @@
   <title>Document</title>
 </head>
 <body>
-  <div class='container'>
+    <div class='container'>
+        <div class='row'>
+            <ul id="tabs-swipe-demo" class="tabs">
+                <li class="tab col s3"><a [routerLink]="['/home','dashboard']">Home</a></li>
+                <li class="tab col s3"><a [routerLink]="['/home','watchlist']">Watchlist</a></li>
+                <li class="tab col s3"><a [routerLink]="['/home','cart']">Cart</a></li>
+              </ul>
+        </div>
 
-   Watched by : {{count}}
-    <div>
-          <p>{{ item.name }}</p>
-          <p>{{ item.salePrice }}</p>
-          <p>{{ item.brandName }}</p>
-          <p>{{ item.thumbnailImage }}</p>
-          <p>{{ item.mediumImage }}</p>
-          <p>{{ item.largeImage }}</p>  
-          <p>{{ item.size }}</p>        
-          <p>{{ item.color }}</p>       
-          <p>{{ item.sellerInfo }}</p>        
-          <p>{{ item.stock }}</p>          
-          <p>{{ item.freeShippingOver50Dollars }}</p>  
-          <button (click)='addToCart()'>Add to Cart</button>  
-          <button (click)='addToWatchlist(item.itemId)'>Add to Watchlist</button>      
-    </div>
-  </div>
+        <div class="col s12 m7">
+            <a [routerLink]="['/dashboard','shop-details']">Back</a>
+            <h2 class="header">{{ item.name }}</h2>
+            <div class="card horizontal">
+              <div class="card-image">
+                
+                <img [src]=item.thumbnailImage>
+                <img [src]=item.largeImage>
+                </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                    <p style='font-weight : bold '>Price : ${{ item.salePrice }}</p>
+                    <p *ngIf='item.stock === "Available"' style='color : green'>In Stock</p>
+                    <p *ngIf='item.stock !== "Available"' style='color : red'>Not In Stock</p>  
+                    <p>Manufactured by {{ item.brandName }}</p>
+                     <p>Cloathing Size : {{ item.size }}</p>        
+                    <p> Color : {{ item.color }}</p>       
+                    <p>Sold By : {{ item.sellerInfo }}</p> 
+                    <p *ngIf='item.freeShippingOver50Dollars === "true"' style='color : green'>*Free Shipping Available</p>
+                    <p *ngIf='item.freeShippingOver50Dollars === "false"' style='color : red'>*Free Shipping over $50 order</p>         
+                 
+                </div>
+                <div class="card-action">
+                    Quantity : <input type="number" min="1" max="50" value='1' [(ngModel)]='item.quantity'>
+                    <button class="waves-effect waves-light btn"  (click)='addToCart(item)'>Add to Cart</button>  
+                    <button class="waves-effect waves-light btn" onclick="Materialize.toast('Item added to watchlist', 4000)" (click)='addToWatchlist(item.itemId)'>Add to Watchlist</button>      
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
 </body>
 </html>
+
+
+<!-- <h3 *ngIf='count != 0'>Watched by : {{count}}</h3>
+
+ <div>
+       <p>{{ item.itemId }}</p>
+       <p>{{ item.name }}</p>
+       <p>{{ item.salePrice }}</p>
+       <p>{{ item.brandName }}</p>
+       <p>{{ item.thumbnailImage }}</p>
+       <p>{{ item.mediumImage }}</p>
+       <p>{{ item.largeImage }}</p>  
+       <p>{{ item.size }}</p>        
+       <p>{{ item.color }}</p>       
+       <p>{{ item.sellerInfo }}</p>        
+       <p>{{ item.stock }}</p>          
+       <p>{{ item.freeShippingOver50Dollars }}</p>  
+        Quantity : <input type="number" min="1" max="50" value='1' [(ngModel)]='item.quantity'>
+       <button (click)='addToCart(item)'>Add to Cart</button>  
+       <button (click)='addToWatchlist(item.itemId)'>Add to Watchlist</button>      
+ </div>
+</div> -->

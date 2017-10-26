@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { User } from './user';
+import { Cart } from './cart';
 
 @Injectable()
 export class UserService {
@@ -47,5 +48,24 @@ export class UserService {
     return this._http.post('/getwatchdetails', { productid : this.itemId }).map(data => data.json()).toPromise();
   }
 
+  getBrowsingHistory() {
+    return this._http.get('/getBrowsingHistory').map(data => data.json()).toPromise();
+  }
+
+  getbrowsedItem (bhistoryid: string) {
+    // tslint:disable-next-line:max-line-length
+    return this._http.get(`http://api.walmartlabs.com/v1/items/${bhistoryid}?format=json&apiKey=sx3fqu6hgy2rmy4ewfjshgar`).map(data => data.json()).toPromise();
+  }
+  getwatchlist() {
+    return this._http.get('/getwatchlist').map(data => data.json()).toPromise();
+  }
+
+  addtoCart(cart: Cart) {
+        return this._http.post('/addtoCart', cart).map(data => data.json()).toPromise();
+  }
+
+  getOrderDetails(){
+    return this._http.get('/getOrderDetails').map(data => data.json()).toPromise();
+  }
 
 }

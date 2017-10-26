@@ -14,6 +14,11 @@ import { EmailComponent } from './email/email.component';
 import { UserService } from './user.service';
 import { ShopDetailsComponent } from './shop-details/shop-details.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
+import { CartComponent } from './cart/cart.component';
+import { WatchlistComponent } from './watchlist/watchlist.component';
+import { HomeComponent } from './home/home.component';
+
+
 
 
 const config = new AuthServiceConfig([
@@ -39,7 +44,10 @@ export function provideConfig() {
     DashboardComponent,
     EmailComponent,
     ShopDetailsComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    CartComponent,
+    WatchlistComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

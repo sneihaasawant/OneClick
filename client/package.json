@@ -22,7 +22,11 @@
     "@angular/platform-browser-dynamic": "^4.3.2",
     "@angular/router": "^4.3.2",
     "angular4-social-login": "^1.0.13",
+    "bootstrap": "^4.0.0-beta.2",
     "core-js": "^2.4.1",
+    "material-design-icons": "^3.0.1",
+    "materialize-css": "^0.100.2",
+    "materialize-social": "^1.0.3",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.16"
   },

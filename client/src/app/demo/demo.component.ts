@@ -39,7 +39,7 @@ export class DemoComponent implements OnInit {
 
   shop() {
     console.log('inside shop');
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['/home', 'dashboard']);
   }
 
   email() {

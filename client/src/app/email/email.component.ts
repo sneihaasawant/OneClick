@@ -19,7 +19,7 @@ export class EmailComponent implements OnInit {
   loginviaForm() {
     console.log(this.user);
     this._userService.create(this.user)
-    .then( () => this.router.navigate(['dashboard']))
+    .then( () => this.router.navigate(['home', 'dashboard']))
     .catch(err => console.log('login err:', err ));
 }
 
