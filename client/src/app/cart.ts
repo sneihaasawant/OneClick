@@ -1,4 +1,5 @@
 export class Cart {
+    url: String = '';
     itemId: String = '';
     name: String = '';
     size: String = '';

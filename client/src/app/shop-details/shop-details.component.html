@@ -7,19 +7,19 @@
   <title>Shop-Details</title>
 </head>
 <body>
-<div class='container'>
-    <div class='row'>
-        <ul id="tabs-swipe-demo" class="tabs">
-            <li class="tab col s3"><a [routerLink]="['/home','dashboard']">Home</a></li>
-            <li class="tab col s3"><a [routerLink]="['/home','watchlist']">Watchlist</a></li>
-            <li class="tab col s3"><a [routerLink]="['/home','cart']">Cart</a></li>
+
+    <div class='row background'>
+        <ul id="tabs-swipe-demo" class="tabs background">
+            <li class="tab col s3"><a style='color: #6b156d;' [routerLink]="['/home','dashboard']">Home</a></li>
+            <li class="tab col s3"><a style='color: #6b156d;' [routerLink]="['/home','watchlist']">Watchlist</a></li>
+            <li class="tab col s3"><a style='color: #6b156d;' [routerLink]="['/home','cart']">Cart</a></li>
           </ul>
     </div>
 
 
 
-    <div class="row">
-        <div *ngFor='let item of clothes'>
+<!--     
+        <div *ngFor='let item of clothes' style="max-width:500px">
         <div class="col s12 m7">        
           <div class="card" style='display: inline-block'>
             <div class="card-image">
@@ -33,9 +33,24 @@
             </div>
             </div>
         </div>
-      </div>
+   -->
 
-
+        <div class="row background">
+            
+                   
+                <div class="rec_wrap">
+                    <div class="img_squ" *ngFor='let item of clothes'>
+                        <p id='p_text'>{{item.name}}</p>
+             
+                        <a class="hoverable rec_image" (click)='itemdetails(item.itemId)' id='img' [ngStyle]="{'background-image': 'url(' + item.largeImage+')'  }">
+                       <img class="size_setter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Transparent_square.svg/2000px-Transparent_square.svg.png" alt=""></a>
+                   
+                            <p *ngIf='item.stock === "Available"' style='color : green'>In Stock</p>
+                            <p *ngIf='item.stock !== "Available"' style='color : red'>Not In Stock</p>  
+                       
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -48,9 +63,8 @@
     <p *ngIf='item.stock === "Available"'>In Stock</p>
     <p *ngIf='item.stock !== "Available"'>Not In Stock</p>    
   </div> -->
-</div>
 
-</div>
+
 </body>
 </html>
 

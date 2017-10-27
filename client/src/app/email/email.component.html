@@ -40,7 +40,7 @@
         </form> -->
 
      
-          <div class="col s12">
+          <div class="col s12 background">
       <form (submit)="loginviaForm()" #userForm='ngForm'>
           <div class="input-field col s6">
               <input id="UserName" type="text" class="validate"  name ='name' 
@@ -55,7 +55,7 @@
           </div>
 
           <div class="input-field col s6">
-              <input id="password" type="text" class="validate"  name ='password' 
+              <input id="password" type="password" class="validate"  name ='password' 
               required 
               minlength="1"
               [(ngModel)]='user.password'
@@ -66,7 +66,7 @@
               <span *ngIf='password.errors?.minlength' style='color : red;'>Minimum length is {{name.errors.minlength.requiredLength}}</span>
           </div>
           <br>
-              <p><input type='submit' class="btn btn-primary waves-effect waves-light col s2" value='Sign In / Register' [disabled]='!userForm.valid'></p>
+              <p><input class="input-field col s6" type='submit' class="btn btn-primary waves-effect waves-light" value='Sign In / Register' [disabled]='!userForm.valid'></p>
               <!-- <button type="submit" class="btn btn-primary" [disabled]='!userForm.valid'>  </button> -->
         </form>
     

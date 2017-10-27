@@ -1,0 +1,7 @@
+ 
+.background {
+    background-image: url("./../../assets/images/background.png");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+  }

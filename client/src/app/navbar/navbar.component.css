@@ -1,0 +1,22 @@
+.background {
+    background-image: url("./../../assets/images/background1.png");
+    background-repeat: no-repeat;
+     background-size: cover;
+     height : 80px;
+     line-height: 80px;
+  }
+
+.logo{
+    font-size : 30px;
+    height: 100px;
+  }
+
+.logout{
+    margin-left:1000px;
+    font-size : 30px;
+    
+  }
+
+  .bg-color{
+    background-color: blue;
+  }

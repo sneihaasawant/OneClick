@@ -3,3 +3,26 @@
     left: 0;
     min-height: 40vh !important 
 }
+
+/* img{
+    display: inline-block;    
+    height:250px;
+    width:250px;
+} */
+/* .mySlides {display:none;} */
+div{
+    display: inline-block;
+}
+
+.imgSize{
+    height:300px;
+    width:300px;
+}
+.background {
+    background-image: url("./../../assets/images/background.png");
+    background-repeat: no-repeat;
+    height: auto;
+    background-size: cover;    
+    margin-bottom: 0px;
+    line-height: auto;
+  }

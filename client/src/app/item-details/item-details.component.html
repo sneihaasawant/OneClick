@@ -10,15 +10,16 @@
     <div class='container'>
         <div class='row'>
             <ul id="tabs-swipe-demo" class="tabs">
-                <li class="tab col s3"><a [routerLink]="['/home','dashboard']">Home</a></li>
-                <li class="tab col s3"><a [routerLink]="['/home','watchlist']">Watchlist</a></li>
-                <li class="tab col s3"><a [routerLink]="['/home','cart']">Cart</a></li>
+                <li class="tab col s3"><a style='color: #6b156d;' [routerLink]="['/home','dashboard']">Home</a></li>
+                <li class="tab col s3"><a style='color: #6b156d;' [routerLink]="['/home','watchlist']">Watchlist</a></li>
+                <li class="tab col s3"><a style='color: #6b156d;' [routerLink]="['/home','cart']">Cart</a></li>
               </ul>
         </div>
 
         <div class="col s12 m7">
             <a [routerLink]="['/dashboard','shop-details']">Back</a>
             <h2 class="header">{{ item.name }}</h2>
+            <p *ngIf='count != 0' style='color: #6b156d;'>Number of people currently watching : {{count}}</p>
             <div class="card horizontal">
               <div class="card-image">
                 
@@ -39,9 +40,9 @@
                  
                 </div>
                 <div class="card-action">
-                    Quantity : <input type="number" min="1" max="50" value='1' [(ngModel)]='item.quantity'>
+                    Quantity : <input type="number" min="1" max="50" value="1" [(ngModel)]='item.quantity'>
                     <button class="waves-effect waves-light btn"  (click)='addToCart(item)'>Add to Cart</button>  
-                    <button class="waves-effect waves-light btn" onclick="Materialize.toast('Item added to watchlist', 4000)" (click)='addToWatchlist(item.itemId)'>Add to Watchlist</button>      
+                    <button class="waves-effect waves-light btn" onclick="Materialize.toast('Item added to watchlist', 3000)" (click)='addToWatchlist(item.itemId)'>Add to Watchlist</button>      
                 </div>
               </div>
             </div>

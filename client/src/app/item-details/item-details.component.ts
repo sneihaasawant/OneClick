@@ -40,6 +40,7 @@ export class ItemDetailsComponent implements OnInit {
     console.log('Inside add to cart');
     this.cart.itemId = this.productid;
     this.cart.name = this.item.name;
+    this.cart.url = this.item.thumbnailImage;
     this.cart.size = this.item.size;
     this.cart.color = this.item.color;
     this.cart.salePrice = this.item.salePrice;

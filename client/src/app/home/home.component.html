@@ -7,14 +7,14 @@
   <title>Document</title>
 </head>
 <body>
-<div class='row'>
-    <ul id="tabs-swipe-demo" class="tabs">
-        <li class="tab col s3"><a [routerLink]="['dashboard']">Home</a></li>
-        <li class="tab col s3"><a [routerLink]="['watchlist']">Watchlist</a></li>
-        <li class="tab col s3"><a [routerLink]="['cart']">Cart</a></li>
+<div class='row background'>
+    <ul id="tabs-swipe-demo" class="tabs background">
+        <li class="tab col s3"><a style='color: #6b156d;' [routerLink]="['dashboard']">Home</a></li>
+        <li class="tab col s3"><a style='color: #6b156d;' [routerLink]="['watchlist']">Watchlist</a></li>
+        <li class="tab col s3"><a style='color: #6b156d;' [routerLink]="['cart']">Cart</a></li>
       </ul>
     
-    <div class="details">
+    <div class="details background">
       <router-outlet></router-outlet>
     </div>
 
