@@ -30,7 +30,8 @@ APIs : Wallmart , Facebook and Google
     - navbar : Should give access to Dashboard , watchlist and cart throught website.
     - logo : Logo should be clickable ( Navigate to dashboard ) and appear on left corner.
     - List of categories : list of categories pitcures displayed which should navigate to category items.
-    *PS : For faster loading data from API , selected only 10 items from each category*
+ 
+*PS : For faster loading data from API , selected only 10 items from each category. Project timeframe was 2 days.There wasn't enough time to implement pagination.*
     
 4. Item Details : 
     - Name
